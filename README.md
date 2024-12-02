@@ -21,11 +21,11 @@ More examples can be found in tests/test.yml:
 <pre>
 admingroup: "admin"
 adminshell: "/bin/bash"
-adminusers:
- - {name: admin1, state: 'present', uid: 5001, group: "{{admingroup}}", shell: "{{adminshell}}", pubkey: "ssh-rsa KEY admin1@example.com" }
 adminremove_passwords: false
- - {name: badadmin2, state: 'absent', uid: 5001, group: "{{admingroup}}", shell: "{{adminshell}}", pubkey: "ssh-rsa KEY badadmin2@example.com" }
- - {name: rsyncuser1, state: 'present', uid: 5003, group: "{{admingroup}}", shell: "{{adminshell}}", pubkey: "ssh-rsa KEY rsync1@example.com", options: 'command="/usr/local/bin/rrsync /allow/rrsync/here/directory",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding' }
+adminusers:
+ - {name: admin1, state: 'present', uid: 5001, group: "{{admingroup}}", shell: "{{adminshell}}", pubkeys: [ { pubkey: "ssh-rsa KEY admin1@example.com" } ] }
+ - {name: badadmin2, state: 'absent', uid: 5001, group: "{{admingroup}}", shell: "{{adminshell}}", pubkeys: [ { pubkey: "ssh-rsa KEY badadmin2@example.com" } ] }
+ - {name: rsyncuser1, state: 'present', uid: 5003, group: "{{admingroup}}", shell: "{{adminshell}}", pubkeys: [ { pubkey: "ssh-rsa KEY rsync1@example.com", options: 'command="/usr/local/bin/rrsync /allow/rrsync/here/directory",no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding' } ] }
 </pre>
 
  - adminremove_passwords: True
